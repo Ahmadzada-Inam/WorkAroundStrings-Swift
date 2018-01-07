@@ -37,6 +37,20 @@ class ViewController: UIViewController {
         print(numberString[..<firstFourIndex])
         print(numberString[allButFirstThreeIndex...])
         print(numberString[secondIndex..<thirdToLastIndex])
+        
+        // Sorting
+        let array: NSArray = ["str 1", "str 21", "str 12", "str 11", "str 02"]
+        let sortedArray = array.sortedArray { (s1, s2) -> ComparisonResult in
+            
+            let s1 = s1 as! String
+            let s2 = s2 as! String
+            let comparisonOptions = String.CompareOptions.caseInsensitive.union(.numeric).union(.widthInsensitive).union(.forcedOrdering)
+            let nsrange = NSMakeRange(0, s1.count)
+            let range = Range(nsrange, in: s1)
+            return s1.compare(s2, options: comparisonOptions, range: range, locale: nil)
+        }
+        print(array as! [Any])
+        print(sortedArray)
     }
 }
 
