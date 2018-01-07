@@ -27,6 +27,16 @@ class ViewController: UIViewController {
             print("Original: \(theString), \(theString.count)")
             print("Modified: \(asciiString), \(asciiString.count)")
         }
+        
+        //Extracting
+        let numberString = "012345678910"
+        let firstFourIndex = numberString.index(numberString.startIndex, offsetBy: 4)
+        let allButFirstThreeIndex = numberString.index(numberString.startIndex, offsetBy: 3)
+        let secondIndex = numberString.index(numberString.startIndex, offsetBy: 2)
+        let thirdToLastIndex = numberString.index(numberString.endIndex, offsetBy: -3)
+        print(numberString[..<firstFourIndex])
+        print(numberString[allButFirstThreeIndex...])
+        print(numberString[secondIndex..<thirdToLastIndex])
     }
 }
 
